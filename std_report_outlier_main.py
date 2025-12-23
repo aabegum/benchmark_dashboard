@@ -8,6 +8,19 @@ detection using STD, IQR, and MAD methods.
 Author: Onur Arıkan
 Date: 2024-08-20
 """
+"""
+SCRIPT SUMMARY: BASELINE VERSION
+--------------------------------
+This is the original baseline script for benchmark reporting.
+
+Key Features:
+- Methods: Calculates outliers using 3 independent methods:
+    1. STD (Standard Deviation)
+    2. IQR (Interquartile Range)
+    3. MAD (Median Absolute Deviation)
+- Reporting: The output PowerPoint text lists results for all three methods separately.
+- Visualization: Generates standard scatter, stacked bar, and overlayed graphs.
+"""
 
 # Standard library imports
 import logging

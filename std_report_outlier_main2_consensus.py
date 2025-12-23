@@ -8,7 +8,20 @@ detection using STD, IQR, and MAD methods.
 Author: Onur Arıkan
 Date: 2024-08-20
 """
+"""
+SCRIPT SUMMARY: CONSENSUS UPDATE
+--------------------------------
+This version improves outlier confidence by finding agreements between statistical methods.
 
+Key Features:
+- Consensus Logic: Introduces 'find_consensus_outliers' to identify data points flagged 
+  by BOTH the IQR and MAD methods.
+- Reporting: Updates the PowerPoint text box ("Bulgu") to show:
+    1. IQR results
+    2. MAD results
+    3. Consensus/Intersection count (High confidence outliers)
+- Visualization: Uses the standard graphs from the baseline version.
+"""
 # Standard library imports
 import logging
 from pathlib import Path

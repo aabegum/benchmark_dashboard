@@ -8,6 +8,21 @@ detection using STD, IQR, and MAD methods.
 Author: Onur Arıkan
 Date: 2024-08-20
 """
+"""
+SCRIPT SUMMARY: VISUALIZATION OVERHAUL
+--------------------------------------
+This is the most advanced version, focusing on detailed data visualization and 
+consensus tracking.
+
+Key Features:
+- Consensus Graph: Adds a new scatter plot type that marks 'Consensus Outliers' 
+  (IQR + MAD agreement) with large Red X markers.
+- Heatmaps: 
+    1. 'heatmapgraph': Detailed grid (APGs vs Companies) with color-coded performance.
+    2. 'create_summary_heatmap': High-level summary of representative APGs.
+- Reporting: Uses the Consensus logic from main2 but provides significantly richer 
+  visual outputs.
+"""
 
 # Standard library imports
 import logging
@@ -740,8 +755,10 @@ def heatmapgraph(category_no: str) -> plt.Figure:
                    fontsize=FONT_SIZE)
     
     # Format colorbar labels for percentages
+    # Format colorbar labels for percentages
     if is_percentage:
         cbar_ticks = cbar.get_ticks()
+        cbar.set_ticks(cbar_ticks)  # <--- ADD THIS LINE to lock the positions
         cbar.set_ticklabels([format_percentage(tick) for tick in cbar_ticks])
     
     # Set ticks and labels

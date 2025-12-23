@@ -8,7 +8,21 @@ detection using STD, IQR, and MAD methods.
 Author: Onur Arıkan
 Date: 2024-08-20
 """
+"""
+SCRIPT SUMMARY: STATISTICAL VARIANT (TUKEY'S)
+---------------------------------------------
+This version expands the statistical analysis by adding a fourth detection method.
 
+Key Features:
+- New Method: Implements Tukey's Fences (typically with a factor of 3.0) to detect 
+  extreme/far outliers.
+- Reporting: The PowerPoint text box is expanded to list statistics for 4 distinct methods:
+    1. STD
+    2. IQR
+    3. MAD
+    4. Tukey
+- Visualization: Uses the standard graphs from the baseline version.
+"""
 # Standard library imports
 import logging
 from pathlib import Path
