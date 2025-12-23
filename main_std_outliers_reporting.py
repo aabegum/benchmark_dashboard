@@ -9,18 +9,25 @@ Author: Onur Arıkan
 Date: 2024-08-20
 """
 """
-SCRIPT SUMMARY: CONSENSUS UPDATE
---------------------------------
-This version improves outlier confidence by finding agreements between statistical methods.
+SCRIPT SUMMARY: CONSENSUS OUTLIER DETECTION
+-------------------------------------------
+Filename: std_report_outlier_main2_consensus.py
+
+This script processes distribution company data to generate a benchmark report 
+with high-confidence outlier detection.
 
 Key Features:
-- Consensus Logic: Introduces 'find_consensus_outliers' to identify data points flagged 
-  by BOTH the IQR and MAD methods.
-- Reporting: Updates the PowerPoint text box ("Bulgu") to show:
-    1. IQR results
-    2. MAD results
-    3. Consensus/Intersection count (High confidence outliers)
-- Visualization: Uses the standard graphs from the baseline version.
+- Consensus Logic: Implements a 'find_consensus_outliers' function that only 
+  flags data points as outliers if they are detected by BOTH:
+    1. IQR (Interquartile Range)
+    2. MAD (Median Absolute Deviation)
+  This reduces false positives compared to using a single method.
+
+- Reporting: The generated PowerPoint text box ("Bulgu") highlights the 
+  Intersection (Consensus) count, providing a clearer signal of genuine 
+  performance deviations.
+
+- Visualization: Generates standard scatter, stacked bar, and overlayed graphs.
 """
 # Standard library imports
 import logging
@@ -83,7 +90,7 @@ COMPANIES_RANGE = np.arange(1, NUM_OF_COMPANIES + 1)
 REPORT_TYPE_CHOICES = "yariyillik", "yillik"
 REPORT_YEAR = config['REPORT_YEAR']
 REPORT_TYPE = config['REPORT_TYPE']
-
+print(f"Generating {REPORT_TYPE} report for year {REPORT_YEAR}...")
 SIGMA: int = config['SIGMA']
 IQR_FACTOR: float = config.get('IQR_FACTOR', 1.5)
 MAD_THRESHOLD: float = config.get('MAD_THRESHOLD', 3.5)
@@ -480,7 +487,7 @@ if __name__ == "__main__":
     df = dataframe_dict[f"{REPORT_YEAR}_Total_Veriler"]
     pptx_layout = dataframe_dict["pptx_layout"]
     merged_df = pd.merge(df, pptx_layout, left_on='APG No', right_on='APG Kodu', how='left')
-    merged_df.Sayfa = merged_df.Sayfa.astype(int)
+    merged_df['Sayfa'] = merged_df['Sayfa'].fillna(0).astype(int)
     merged_df['Category No'] = merged_df['APG No'].str.split('.').str[0]
     merged_df['APG Full Name'] = merged_df.apply(lambda row: f'{row["APG No"]}-{row["APG İsmi"]}', axis=1)
     merged_df['APG Group'] = merged_df['APG No'].str.extract(APG_NO_PATTERN)[0]
