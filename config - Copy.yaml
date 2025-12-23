@@ -1,6 +1,7 @@
 # Relative path to C:/Users/%USERNAME%/MRC/MRC - MI9050_Various_Benchmark/Main_Directory
 # Since the username in the common path is dynamic, we use a path that is relative to the main directory.
-MASTER_FILE: Alınan Veriler/2023/2.Dönem/2023_YILLIK_MASTER_DOSYA.xlsx
+#MASTER_FILE: Alınan Veriler/2023/2.Dönem/2023_YILLIK_MASTER_DOSYA.xlsx
+MASTER_FILE: 2024_2_YILLIK_MASTER_DOSYA.xlsx
 TEMPLATE_PATH: Sunum_Şablonları/Kıyaslama_Çalışması_Yıl_Sonu_Raporu_Template.pptx
 
 # This section contains the mapping of company groups to their respective EDAŞ companies.
@@ -17,18 +18,29 @@ COMPANY_GROUPS:
   UEDAŞ: ["UEDAŞ"]
   ARAS EDAŞ: ["ARAS EDAŞ"]
 
+# Add this section to your existing config.yaml
+CUMULATIVE_CHARTS:
+  ENABLED: true
+  SHEET_NAME: 'Kümülatif'
+  DEFAULT_APGS_TO_SHOW: 10
+  CHART_HEIGHT: 550
+  YEARS: ['2021', '2022', '2023', '2024']
+
 # This section contains the companies that are excluded from the report.
 # Note that these groups are not included in the report, but they are used for the comparison of all companies.
 # Usually it is an empty list, but it can be used for debugging purposes.
-COMPANY_GROUPS_EXCLUDED_FROM_REPORT: []
-
+COMPANY_GROUPS_EXCLUDED_FROM_REPORT: ['AYDEM', 'ARAS EDAŞ','ENERJİSA', 'SEDAŞ', 'UEDAŞ','TREDAŞ','YEDAŞ','VEDAŞ']
+#COMPANY_GROUPS_EXCLUDED_FROM_REPORT: []
+#COMPANY_GROUPS_EXCLUDED_FROM_REPORT: ['AYDEM', 'ARAS EDAŞ','ENERJİSA', 'UEDAŞ','TREDAŞ','YEDAŞ','VEDAŞ']
 # Choices for years and periods
-REPORT_YEAR: 2023
+REPORT_YEAR: 2024_2
 REPORT_TYPE: yillik  # Should be one of REPORT_TYPE_CHOICES (yariyillik, yillik)
 
 # Sigma value for outlier detection.
 # The values that are outside the range (mean - sigma * std, mean + sigma * std) are considered as outliers.
-SIGMA: 3
+SIGMA: 2
+IQR_FACTOR: 1.5
+MAD_THRESHOLD: 4.0
 
 # Decimal digits for the percentage values in the graphs.
 DEFAULT_DECIMAL_DIGITS: 1

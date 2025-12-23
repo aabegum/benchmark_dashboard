@@ -10,7 +10,7 @@ pip install -r requirements.txt
 ```
 
 ## Adjust the configuration file
-The code is aimed to not change unless there is a need to do for programming purposes. The changes on the benchmark program usually are done on the configuration file. The configuration file is located at `config.yaml`. 
+The code is aimed to not change unless there is a need to do for programming purposes. The changes on the benchmark program usually are done on the configuration file. The configuration file is located at `config.yaml`.
 In the configuration file, you can adjust the input parameters, the company groups, report year and type and some variables that will matter in the output file in visual or data calculation aspects. The configuration file is well commented to help you understand what each parameter does.
 
 ## The input data
@@ -19,7 +19,7 @@ First one is the `MASTER_FILE` which contains the data of the companies. The dat
 
 For example some key points to remember:
 - The Excel file should have two sheets. The first sheet should be named `{REPORT_YEAR}_Total_Veriler` where `{REPORT_YEAR}` is the report year that is typed in the configuration file. This data should have the columns `APG No`, `APG İsmi`, `Birim`. And the rest of the columns should be the companies that are defined in the configuration file. The order does not matter as they will be shuffled for the output file anyway.
-- The second sheet should be named `pptx_layout`. It contains the layout of the presentation template. It should have the columns `APG Kodu`, `Sayfa`, `Left`, `Top`, `Width`, `Height`, `Grafik_tipi`, `Bulgu?`. The program will use this data to place the graphics in the presentation template. 
+- The second sheet should be named `pptx_layout`. It contains the layout of the presentation template. It should have the columns `APG Kodu`, `Sayfa`, `Left`, `Top`, `Width`, `Height`, `Grafik_tipi`, `Bulgu?`. The program will use this data to place the graphics in the presentation template.
 - Grafik tipi is the type of the graphic that will be placed in the presentation. The program will use the corresponding function that is assigned for the grafik tipi.
 - Bulgu? is a boolean value that indicates if the filtered mean of the data should be placed in the presentation or not corresponding to the Bulgu text boxes in the presentation template.
 - APG column should be sorted correctly and the first 2 sheets should have the same APG No order. The APG No that ends with EK are exception and can be placed at the end.

@@ -35,7 +35,7 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-
+yedek/
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
@@ -131,14 +131,17 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+Arsiv/
 # Spyder project settings
 .spyderproject
 .spyproject
-
+*.xlsx
+*.xlsm
+*.csv
 # Rope project settings
 .ropeproject
-
+dashboard/
+dashboard_v1/
 # mkdocs documentation
 /site
 
@@ -177,3 +180,4 @@ pyrightconfig.json
 
 *.ipynb
 config.yaml
+config/
