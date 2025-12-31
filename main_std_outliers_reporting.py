@@ -87,7 +87,7 @@ if set(COMPANY_GROUPS_EXCLUDED_FROM_REPORT) - set(COMPANY_GROUPS):
 NUM_OF_COMPANIES = sum(len(companies) for companies in COMPANY_GROUPS.values())
 COMPANIES_RANGE = np.arange(1, NUM_OF_COMPANIES + 1)
 
-REPORT_TYPE_CHOICES = "yariyillik", "yillik"
+REPORT_TYPE_CHOICES = "yariyillik", "yillik","cokyillik"
 REPORT_YEAR = config['REPORT_YEAR']
 REPORT_TYPE = config['REPORT_TYPE']
 print(f"Generating {REPORT_TYPE} report for year {REPORT_YEAR}...")
@@ -155,7 +155,7 @@ def filtered_mean_with_outliers_iqr(row: pd.Series, start_col: int, end_col: int
     row (pd.Series): A row from a pandas DataFrame.
     start_col (int): Starting column index.
     end_col (int): Ending column index (exclusive).
-    iqr_factor (float, optional): Multiplier for IQR bounds. Default is 1.5.
+    iqr_factor (float, opstional): Multiplier for IQR bounds. Default is 1.5.
 
     Returns:
     dict: Contains filtered_mean, outliers, and outlier_count.
